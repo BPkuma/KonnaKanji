@@ -66,5 +66,18 @@ git commit -m 'add: XXXの機能を持つxxx.pyファイルを追加'<br><br>
 仕様の変更 change:<br>
 整理 clean:<br>
 
-## ブランチについての説明
+## なぜ僕らはGitでバージョン管理をするのか
+https://qiita.com/gakisan8273/items/d2d52a12ad553a82b94b
+<br>
+## 初心者がしっかりと理解できるようにGitのブランチを説明する
 https://qiita.com/gakisan8273/items/0e0ad1fee2a7c623f8d6
+<br>
+## Gitを触り始めてからGitHubにpushするまでの流れを誰よりも丁寧に説明する
+https://qiita.com/gakisan8273/items/6ebaf9217d140ff1f031
+<br>
+## ターミナルコマンド備忘録
+https://qiita.com/ryouzi/items/f9dee1540a04a0bfb9a3
+<br>
+## チーム開発においてGit初心者がふみがちな地雷まとめ
+https://techracho.bpsinc.jp/morimorihoge/2020_09_09/16856
+<br>
