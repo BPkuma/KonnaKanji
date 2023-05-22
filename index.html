@@ -4,7 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>こんな漢字</title>
+  <style>
+    /* リセットCSS */
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    main {
+      width: 200px;
+      margin: 0 auto
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #question {
+      text-align: center;
+      background-color: pink;
+    }
+
+    #answerBoard {
+      display: flex;
+      height: 100px;
+      background-color: skyblue;
+    }
+
+    a {
+      display: block;
+    }
+
+    .answer01,
+    .answer02 {
+      margin: 0 auto;
+    }
+
+    #result {
+      display: flex;
+      background-color: orange;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -12,10 +54,17 @@
   </header>
 
   <main>
-    <div id="question"></div>
-    
-    <ul id="setBoard">
-    </ul>
+    <div id="question">
+      今の気分は？
+    </div>
+    <div id="answerBoard">
+      <div class="answer01" width="100" height="200"><a href="#">A</a></div>
+      <div class="answer02" width="100" height="200"><a href="#">B</a></div>
+    </div>
+    <div id="result">
+      <div class="result01"><img src="img/25_result.png" width="100" height="200"></div>
+      <div class="result02"><img src="img/02_result.png" width="100" height="200"></div>
+    </div>
   </main>
 
   <footer>
