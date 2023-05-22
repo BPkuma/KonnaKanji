@@ -55,10 +55,9 @@ GitHubのリポジトリの「Settings」 -> 「branches」 -> 「Branch protect
 12.　最初に戻る<br><br>
 
 ## commitコメントの書き方
-一目で何をしたのかわかるようにコメントをつけましょう。
-
+一目で何をしたのかわかるようにコメントをつけましょう。<br>
 例）
-git commit -m 'add: XXXの機能を持つxxx.pyファイルを追加'
+git commit -m 'add: XXXの機能を持つxxx.pyファイルを追加'<br><br>
 
 機能追加 add:<br>
 機能修正 update:<br>
@@ -66,3 +65,6 @@ git commit -m 'add: XXXの機能を持つxxx.pyファイルを追加'
 削除 remove:<br>
 仕様の変更 change:<br>
 整理 clean:<br>
+
+## ブランチについての説明
+https://qiita.com/gakisan8273/items/0e0ad1fee2a7c623f8d6
