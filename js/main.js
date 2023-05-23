@@ -1,5 +1,21 @@
 'use strict';
 
+// result表示する画像の配置位置を定義
+const RESULT_FIELD = [
+  {
+    position : "left",
+    pos_code : 0,
+    width : 100,
+    height : 200,
+  },
+  {
+    position : "right",
+    pos_code : 1,
+    width : 100,
+    height : 200, 
+  },
+];
+
 const nowFeeling = [
   {
     id: "01",
