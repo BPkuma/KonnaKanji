@@ -148,8 +148,8 @@ function showResult() {
   // 画像ファイルのパスをランダムに選択する
   const imageFolderPath = "img/"; // 画像フォルダのパス
   const imageExtensions = ".png"; // 画像の拡張子
-  const imageFilename1 = `${imageFolderPath}${Math.floor(Math.random() * 31)}${imageExtensions}`;
-  const imageFilename2 = `${imageFolderPath}${Math.floor(Math.random() * 31)}${imageExtensions}`;
+  const imageFilename1 = `${imageFolderPath}${1 + Math.floor(Math.random() * 31)}${imageExtensions}`;
+  const imageFilename2 = `${imageFolderPath}${1 + Math.floor(Math.random() * 31)}${imageExtensions}`;
 
   // 画像を表示する
   result01.innerHTML = `<img src="${imageFilename1}" width="100" height="200">`;
