@@ -81,3 +81,6 @@ https://qiita.com/ryouzi/items/f9dee1540a04a0bfb9a3
 ## チーム開発においてGit初心者がふみがちな地雷まとめ
 https://techracho.bpsinc.jp/morimorihoge/2020_09_09/16856
 <br>
+## すでに消されたリモートリポジトリのブランチを、ローカルリポジトリでも根絶やしにしたい
+https://www.r-staffing.co.jp/engineer/entry/20201023_1
+<br>
