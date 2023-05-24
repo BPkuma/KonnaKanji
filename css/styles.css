@@ -17,13 +17,14 @@
 
     #question {
       text-align: center;
-      background-color: pink;
+      /* background-color: pink; */
     }
 
     #answerBoard {
       display: flex;
       height: 100px;
-      background-color: skyblue;
+
+      /* background-color: skyblue; */
     }
 
     a {
@@ -33,9 +34,11 @@
     .answerA,
     .answerB {
       margin: 0 auto;
+      border: 1px solid skyblue;
+      cursor: pointer;
     }
 
     #resultField {
       display: flex;
-      background-color: orange;
+      /* background-color: orange; */
     }

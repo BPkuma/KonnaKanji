@@ -127,6 +127,33 @@ function handleAnswerB() {
 }
 
 function showResult() {
+  const firstAnswer = answerArray[0];
+  const secondAnswer = answerArray[1];
+
+  // // resultPositionを参照して、回答に対応する位置情報を取得する
+  // const resultPosition1 = resultPosition.find((pos) => pos.position === firstAnswer);
+  // const resultPosition2 = resultPosition.find((pos) => pos.position === secondAnswer);
+
+  // // 結果を表示するためのスタイルを設定する
+  // result01.style.width = `${resultPosition1.width}px`;
+  // result01.style.height = `${resultPosition1.height}px`;
+
+  // result02.style.width = `${resultPosition2.width}px`;
+  // result02.style.height = `${resultPosition2.height}px`;
+
+  // 結果の表示内容を設定する
+  result01.textContent = firstAnswer;
+  result02.textContent = secondAnswer;
+
+  // 画像ファイルのパスをランダムに選択する
+  const imageFolderPath = "img/"; // 画像フォルダのパス
+  const imageExtensions = ".png"; // 画像の拡張子
+  const imageFilename1 = `${imageFolderPath}${Math.floor(Math.random() * 31)}${imageExtensions}`;
+  const imageFilename2 = `${imageFolderPath}${Math.floor(Math.random() * 31)}${imageExtensions}`;
+
+  // 画像を表示する
+  result01.innerHTML = `<img src="${imageFilename1}" width="100" height="200">`;
+  result02.innerHTML = `<img src="${imageFilename2}" width="100" height="200">`;
 
 }
 
