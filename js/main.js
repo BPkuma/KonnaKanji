@@ -79,8 +79,11 @@ const matters = [
     answerB: "布団の中。",
   },
 ];
-
+// ユーザーの選択肢を保有するための配列を定義
 const answerArray = [];
+
+// 漢字の配置を拡張する時のための定数を定義。現時点では未使用。
+const formation = 0;
 
 const question = document.getElementById('question');
 const answerA = document.querySelector('.answerA');
@@ -90,24 +93,41 @@ const result01 = document.querySelector('.result01');
 const result02 = document.querySelector('.result02');
 
 function setQuestion() {
+  // ユーザー選択の配列要素が２つに達したら、結果を表示する関数を実行
+  if(answerArray.length === 2){
+    showResult();
+    return;
+  }
+  // 選択肢が２つ貯まるまではクリックイベントをつけたり外したりして繰り返す
   let rand = Math.floor(Math.random() * matters.length);
   let matter = matters.splice(rand, 1)[0];
 
   question.textContent = matter['question'];
   answerA.textContent = matter['answerA'];
   answerB.textContent = matter['answerB'];
+  
+  answerA.addEventListener('click', handleAnswerA);
+  answerB.addEventListener('click', handleAnswerB);
 }
 
-function setResult(e) {
+function handleAnswerA() {
+  answerArray.push(answerA.textContent);
+  console.log(answerArray);
+  answerA.removeEventListener('click', handleAnswerA);
+  answerB.removeEventListener('click', handleAnswerB);
+  setQuestion();
+}
+
+function handleAnswerB() {
+  answerArray.push(answerB.textContent);
+  console.log(answerArray);
+  answerA.removeEventListener('click', handleAnswerA);
+  answerB.removeEventListener('click', handleAnswerB);
+  setQuestion();
+}
+
+function showResult() {
 
 }
 
 setQuestion();
-
-answerA.addEventListener('click', (e) => {
-  
-});
-
-answerB.addEventListener('click', (e) => {
-  
-});
