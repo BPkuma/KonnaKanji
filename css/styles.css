@@ -30,12 +30,12 @@
       display: block;
     }
 
-    .answer01,
-    .answer02 {
+    .answerA,
+    .answerB {
       margin: 0 auto;
     }
 
-    #result {
+    #resultField {
       display: flex;
       background-color: orange;
     }
