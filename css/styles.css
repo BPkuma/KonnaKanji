@@ -7,7 +7,7 @@
 
     /*コンテナで全体を囲んで配置を調整*/
     .container {
-      width: 50%;
+      width: 100%;
       height: 100%;
       margin: 0 auto;
       padding: 0;
@@ -17,9 +17,11 @@
     }
 
     /*隠したい要素*/
-    .hidden {
+    .hidden, #answerBoard.hidden, #question.hidden {
       display: none;
     }
+
+    
 
     h1 {
       width: 100%;
