@@ -158,3 +158,14 @@ function showResult() {
 }
 
 setQuestion();
+
+/********************見た目*********************************************/
+/*ページが読み込まれてから3秒後にタイトルを非表示にする & main要素を表示させる*/
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.querySelector('h1').classList.add('hidden');}, 3000);
+  });
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.querySelector('main').classList.remove('hidden');}, 3000);
+  });

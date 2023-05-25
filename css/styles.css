@@ -5,14 +5,26 @@
       box-sizing: border-box;
       list-style: none;
     }
+    
+    /*隠したい要素*/
+    .hidden {
+      display: none;
+    }
 
     main {
       width: 200px;
-      margin: 0 auto
+      margin: 0 auto;      
     }
 
     h1 {
       text-align: center;
+      display: table-cell;
+      writing-mode: vertical-lr;
+      vertical-align: middle;
+      width: 1200px;
+      height: 700px;
+      font-size: 100px;
+      font-weight: normal;
     }
 
     #question {
