@@ -5,48 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>こんな漢字</title>
-  <style>
-    /* リセットCSS */
-    * {
-      margin: 0;
-      box-sizing: border-box;
-      list-style: none;
-    }
-
-    main {
-      width: 200px;
-      margin: 0 auto
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    #question {
-      text-align: center;
-      background-color: pink;
-    }
-
-    #answerBoard {
-      display: flex;
-      height: 100px;
-      background-color: skyblue;
-    }
-
-    a {
-      display: block;
-    }
-
-    .answer01,
-    .answer02 {
-      margin: 0 auto;
-    }
-
-    #result {
-      display: flex;
-      background-color: orange;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -56,15 +15,14 @@
 
   <main>
     <div id="question">
-      今の気分は？
     </div>
-    <ul id="answerBoard">
-      <li class="answer01" width="100" height="200"><a href="#">A</a></li>
-      <li class="answer02" width="100" height="200"><a href="#">B</a></li>
-    </ul>
-    <div id="result">
-      <div class="result01"><img src="img/25_result.png" width="100" height="200"></div>
-      <div class="result02"><img src="img/02_result.png" width="100" height="200"></div>
+    <div id="answerBoard">
+      <div class="answerA" width="100" height="200"><a href="#"></a></div>
+      <div class="answerB" width="100" height="200"><a href="#"></a></div>
+    </div>
+    <div id="resultField">
+      <div class="result01"><img src=""></div>
+      <div class="result02"><img src=""></div>
     </div>
   </main>
 
@@ -72,74 +30,6 @@
 
   </footer>
 
-  <script>
-    'use strict';
-    /* -----------------------------------------------
-      今のあなたはどっちクイズ
-    -------------------------------------------------- */
-    //定数nowFeelingに配列形式で質問と二択の選択肢を格納
-    const nowFeeling = [
-      {
-        id: "01",
-        question: "今のあなたは",
-        answer01: "明るい。",
-        answer02: "暗い。",
-      },
-      {
-        id: "02",
-        question: "今食べるなら",
-        answer01: "肉。",
-        answer02: "魚。",
-      },
-      {
-        id: "03",
-        question: "今戯れるなら",
-        answer01: "犬。",
-        answer02: "猫。",
-      },
-      {
-        id: "04",
-        question: "どちらか言えば",
-        answer01: "誰かと話したい。",
-        answer02: "一人でいたい。",
-      },
-      {
-        id: "05",
-        question: "今の自分を天気で言うと",
-        answer01: "晴れ。",
-        answer02: "曇り。",
-      },
-      {
-        id: "06",
-        question: "自然と足が向きそうなのは",
-        answer01: "森。",
-        answer02: "海。",
-      },
-      {
-        id: "07",
-        question: "感情の波が",
-        answer01: "激しい。",
-        answer02: "凪いでいる。",
-      },
-      {
-        id: "08",
-        question: "今の気分の服装は",
-        answer01: "ミニマル。",
-        answer02: "派手。",
-      },
-      {
-        id: "09",
-        question: "容姿のコンディションは",
-        answer01: "かわいい。",
-        answer02: "かっこいい。",
-      },
-      {
-        id: "10",
-        question: "今眠りに就くなら",
-        answer01: "ハンモックの上。",
-        answer02: "布団の中。",
-      },
-    ];
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
