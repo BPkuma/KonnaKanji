@@ -16,64 +16,75 @@ const resultPosition = [
   },
 ];
 
+const firstQuestions = [
+  {
+    question: "今のあなたは",
+    answerA: "明るい", 
+      imgA: "img/6.png",
+    answerB: "暗い", 
+      imgB: "img/17.png",
+    formType: "sideBySide",
+  },
+  {
+    question: "今食べるなら",
+    answerA: "肉", 
+      imgA: "img/3.png",
+    answerB: "魚",
+      imgB: "img/8.png",
+    formType: "verticalLine",
+  },
+];
+const secondQuestions = [
+  {
+    question: "今戯れるなら",
+    answerA: "犬",
+      imgA: "",
+    answerB: "猫",
+      imgB: "",
+    formType: "sideBySide",
+  },
+]
 // 設問文と答えの組み合わせを定義
 const matters = [
+
+
   {
-    id: "01",
-    question: "今のあなたは",
-    answerA: "明るい。",
-    answerB: "暗い。",
-  },
-  {
-    id: "02",
-    question: "今食べるなら",
-    answerA: "肉。",
-    answerB: "魚。",
-  },
-  {
-    id: "03",
-    question: "今戯れるなら",
-    answerA: "犬。",
-    answerB: "猫。",
-  },
-  {
-    id: "04",
     question: "どちらか言えば",
     answerA: "誰かと話したい。",
     answerB: "一人でいたい。",
   },
   {
-    id: "05",
+    category: 1,
     question: "今の自分を天気で言うと",
     answerA: "晴れ。",
     answerB: "曇り。",
   },
   {
-    id: "06",
+    category: 2,
     question: "自然と足が向きそうなのは",
     answerA: "森。",
     answerB: "海。",
   },
   {
-    id: "07",
+    category: 2,
     question: "感情の波が",
     answerA: "激しい。",
     answerB: "凪いでいる。",
   },
   {
-    id: "08",
+    category: 2,
     question: "今の気分の服装は",
     answerA: "ミニマル。",
     answerB: "派手。",
   },
   {
-    id: "09",
+    category: 2,
     question: "容姿のコンディションは",
     answerA: "かわいい。",
     answerB: "かっこいい。",
   },
   {
-    id: "10",
+    category: 2,
     question: "今眠りに就くなら",
     answerA: "ハンモックの上。",
     answerB: "布団の中。",
@@ -98,7 +109,7 @@ function setQuestion() {
     showResult();
     return;
   }
-  // 選択肢が２つ貯まるまではクリックイベントをつけたり外したりして繰り返す
+  // ユーザー回答が２つ貯まるまではクリックイベントをつけたり外したりして繰り返す
   let rand = Math.floor(Math.random() * matters.length);
   let matter = matters.splice(rand, 1)[0];
 
