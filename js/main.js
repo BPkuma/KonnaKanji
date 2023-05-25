@@ -155,8 +155,8 @@ function showResult() {
   const imageFilename2 = `${imageFolderPath}${1 + Math.floor(Math.random() * 31)}${imageExtensions}`;
 
   // 画像を表示する
-  result01.innerHTML = `<img src="${imageFilename1}" width="100" height="200">`;
-  result02.innerHTML = `<img src="${imageFilename2}" width="100" height="200">`;
+  result01.innerHTML = `<img src="${imageFilename1}">`;
+  result02.innerHTML = `<img src="${imageFilename2}">`;
   
   //質問と回答を隠す
   question.classList.add('hidden');
