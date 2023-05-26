@@ -92,6 +92,9 @@ const resultField = document.getElementById('resultField');
 const result01 = document.querySelector('.result01');
 const result02 = document.querySelector('.result02');
 
+//アンサーボードを定義
+const answerBoard = document.getElementById('answerBoard');
+
 function setQuestion() {
   // ユーザー選択の配列要素が２つに達したら、結果を表示する関数を実行
   if(answerArray.length === 2){
@@ -152,9 +155,30 @@ function showResult() {
   const imageFilename2 = `${imageFolderPath}${1 + Math.floor(Math.random() * 31)}${imageExtensions}`;
 
   // 画像を表示する
-  result01.innerHTML = `<img src="${imageFilename1}" width="100" height="200">`;
-  result02.innerHTML = `<img src="${imageFilename2}" width="100" height="200">`;
-
+  result01.innerHTML = `<img src="${imageFilename1}">`;
+  result02.innerHTML = `<img src="${imageFilename2}">`;
+  
+  //質問と回答を隠す
+  question.classList.add('hidden');
+  answerBoard.classList.add('hidden');
 }
 
 setQuestion();
+
+/********************見た目*********************************************/
+/*ページが読み込まれてから3秒後にタイトルを非表示にする & main要素を表示させる*/
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.querySelector('h1').classList.add('hidden');}, 3000);
+  });
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.querySelector('main').classList.remove('hidden');}, 3000);
+  });
+
+
+
+
+//Back、Nextボタンを定義
+const back = document.querySelector('back');
+const next = document.querySelector('next');
