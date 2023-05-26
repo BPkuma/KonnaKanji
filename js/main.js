@@ -94,6 +94,7 @@ const NUM = 2;
 const formation = 0;
 
 const question = document.getElementById('question');
+const answerBoard = document.getElementById('answerBoard');
 const answerA = document.querySelector('.answerA');
 const answerB = document.querySelector('.answerB');
 const back = document.querySelector('back');
@@ -107,7 +108,7 @@ function setQuestion() {
   }
   // ユーザー回答の配列要素数によって何回目の質問かを判別し、場合分けする（イベントリスナー内の処理にsetQuestion()があるので規定質問数に達するまでループする）
   switch (answerArray.length) {
-    // 最初の質問(firstQuestion配列を使用する)
+    // 最初の質問ではfirstQuestion配列を使用する
     case 0:
       const fq = firstQuestions.splice(Math.floor(Math.random() * firstQuestions.length), 1)[0];
       // questionノードに問題文をセットする
@@ -121,7 +122,7 @@ function setQuestion() {
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
       break;
-    // 最初の質問以外(secondQuestion配列を使用する)
+    // 最初の質問以外ではsecondQuestion配列を使用する
     default:
       const sq = secondQuestions.splice(Math.floor(Math.random() * secondQuestions.length), 1)[0];
       question.textContent = sq['question'];
@@ -136,7 +137,7 @@ function setQuestion() {
 }
 // 選択肢Aがクリックされた際の処理
 function handleAnswerA() {
-  // ユーザー回答に対応するdata-imgA属性の値を（画像パス）を配列要素に追加する
+  // ユーザー回答に対応するdata-imgA属性の値（画像パス）を配列要素に追加する
   answerArray.push(answerA.dataset.imgA);
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
@@ -154,12 +155,11 @@ function showResult() {
   const result01 = document.querySelector('.result01');
   const result02 = document.querySelector('.result02');
 
-  const firstAnswer = answerArray[0];
-  const secondAnswer = answerArray[1];
-
+  question.remove();
+  answerBoard.remove();
   //結果の表示内容を設定する
-  result01.innerHTML = `<img src="${firstAnswer}" width="100" height="200">`;
-  result02.innerHTML = `<img src="${secondAnswer}" width="100" height="200">`;
+  result01.innerHTML = `<img src="${answerArray[0]}" width="200" height="400">`;
+  result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
 }
 
 // 初期画面：タイトル表示
@@ -170,11 +170,11 @@ function showResult() {
 
 window.addEventListener('load', function() {
   setTimeout(function() {
-    document.querySelector('h1').classList.add('hidden');}, 3000);
+    document.querySelector('h1').classList.add('hidden');}, 1000);
   });
 window.addEventListener('load', function() {
   setTimeout(function() {
-    document.querySelector('main').classList.remove('hidden');}, 3000);
+    document.querySelector('main').classList.remove('hidden');}, 1000);
   });
 
   setQuestion();
