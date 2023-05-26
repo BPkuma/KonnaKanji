@@ -7,28 +7,36 @@
   <title>こんな漢字</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+  <div class="container">
+    <header>
+      <div class="title">
+        <h1>こんな漢字</h1>
+      </div>
+    </header>
+    <main class="hidden">
+      <div id="question">
+      </div>
+      <div id="answerBoard">
+        <div class="answerA"><a href="#"></a></div>
+        <div class="answerB"><a href="#"></a></div>
+      </div>      
 
-  <header>
-    <h1>こんな漢字</h1>
-  </header>
+      <div id="resultField">
+        <div class="result01"><img src=""></div>
+        <div class="result02"><img src=""></div>
+      </div>
 
-  <main>
-    <div id="question">
-    </div>
-    <div id="answerBoard">
-      <div class="answerA" data-imgA="" width="100" height="200"></div>
-      <div class="answerB" data-imgB="" width="100" height="200"></div>
-    </div>
-    <div id="resultField">
-      <div class="result01"></div>
-      <div class="result02"></div>
-    </div>
-  </main>
+      <!--Back、Nextボタン追加-->
+      <div class="back"><a href="#">Back</a></div>
+      <div class="next"><a href="#">Next</a></div>
+      
+    </main>
+  </div>
 
-  <footer>
-
-  </footer>
+<footer>
+</footer>
 
   <script src="js/main.js"></script>
 </body>

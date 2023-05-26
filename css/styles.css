@@ -3,27 +3,74 @@
     * {
       margin: 0;
       box-sizing: border-box;
-      list-style: none;
     }
 
-    main {
-      width: 200px;
-      margin: 0 auto
+    /*コンテナで全体を囲んで配置を調整*/
+    .container {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    /*隠したい要素*/
+    .hidden, #answerBoard.hidden, #question.hidden {
+      display: none;
+    }
+
+    
 
     h1 {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      display: table-cell;
+      writing-mode: vertical-lr;
+      vertical-align: middle;
+      font-size: 100px;
+      font-weight: normal;
+      background-color: aqua;
     }
+
+    /*flexを入れ子にしてさらに調整*/
+    main {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;     
+    }    
 
     #question {
       text-align: center;
       background-color: pink;
+      writing-mode: vertical-lr;
+      vertical-align: middle;
+      font-size: 50px;
+      height: 80%;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     #answerBoard {
       display: flex;
-      height: 100px;
+      height: 100%;
       background-color: red;
+      width: 100%;
     }
 
     a {
@@ -35,6 +82,10 @@
       margin: 0 auto;
       border: 1px solid blue;
       cursor: pointer;
+      width: 50%;
+      font-size: 60px;
+      height: 30%;
+      padding: 0 10px 0 100px;
     }
 
     #resultField {
