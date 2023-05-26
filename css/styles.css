@@ -37,7 +37,7 @@
       vertical-align: middle;
       font-size: 100px;
       font-weight: normal;
-      background-color: aqua;
+      /* background-color: aqua; */
     }
 
     /*flexを入れ子にしてさらに調整*/
@@ -54,7 +54,7 @@
 
     #question {
       text-align: center;
-      background-color: pink;
+      /* background-color: pink; */
       writing-mode: vertical-lr;
       vertical-align: middle;
       font-size: 50px;
@@ -90,5 +90,5 @@
 
     #resultField {
       display: flex;
-      background-color: orange;
+      /* background-color: orange; */
     }
