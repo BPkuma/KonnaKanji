@@ -84,7 +84,7 @@ const secondQuestions = [
   },
 ]
 
-// ユーザーの選択肢を保有するための配列を定義
+// ユーザーの回答を保有するための配列を定義
 const answerArray = [];
 
 // 出題数を定義
@@ -93,27 +93,31 @@ const NUM = 2;
 const question = document.getElementById('question');
 const answerA = document.querySelector('.answerA');
 const answerB = document.querySelector('.answerB');
-const resultField = document.getElementById('resultField');
 
 function setQuestion() {
-  // ユーザー選択の配列要素が２つに達したら、結果を表示する関数を実行
+  // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数を実行
   if (answerArray.length === NUM) {
     showResult();
     return;
   }
-  
+  // ユーザー回答の配列要素数によって何回目の質問かを判別し、場合分けする（イベントリスナー内の処理にsetQuestion()があるので規定質問数に達するまでループする）
   switch (answerArray.length) {
+    // 最初の質問(firstQuestion配列を使用する)
     case 0:
       const fq = firstQuestions.splice(Math.floor(Math.random() * firstQuestions.length), 1)[0];
+      // questionノードに問題文をセットする
       question.textContent = fq['question'];
+      // answerAノードのテキストに回答文をセットする
       answerA.textContent = fq['answerA'];
+      // answerAノードのdata-imgA属性に画像パスをセットする
       answerA.dataset.imgA = fq['imgA'];
       answerB.textContent = fq['answerB'];
       answerB.dataset.imgB = fq['imgB'];
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
       break;
-      default:
+    // 最初の質問以外(secondQuestion配列を使用する)
+    default:
       const sq = secondQuestions.splice(Math.floor(Math.random() * secondQuestions.length), 1)[0];
       question.textContent = sq['question'];
       answerA.textContent = sq['answerA'];
@@ -125,10 +129,10 @@ function setQuestion() {
       break;
   }
 }
-
+// 選択肢Aがクリックされた際の処理
 function handleAnswerA() {
+  // ユーザー回答に対応するdata-imgA属性の値を（画像パス）を配列要素に追加する
   answerArray.push(answerA.dataset.imgA);
-  console.log(answerArray);
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
@@ -136,7 +140,6 @@ function handleAnswerA() {
 
 function handleAnswerB() {
   answerArray.push(answerB.dataset.imgB);
-  console.log(answerArray);
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
