@@ -82,26 +82,26 @@ const secondQuestions = [
       imgB: "img/15.png",
     formType: "verticalLine",
   },
-]
-
-// ユーザーの回答を保有するための配列を定義
+];
+// ユーザーの回答を保有するための空の配列を定義
 const answerArray = [];
+
+// 最初の質問で選択された配列のformTypeを保持する変数
+let selectedFormType = null;
 
 // 出題数を定義
 const NUM = 2;
 
-// 漢字の配置を拡張する時のための定数を定義。現時点では未使用。
-const formation = 0;
-
+// 各種HTMLノードを取得して定数に代入
 const question = document.getElementById('question');
 const answerBoard = document.getElementById('answerBoard');
 const answerA = document.querySelector('.answerA');
 const answerB = document.querySelector('.answerB');
-const back = document.querySelector('back');
-const next = document.querySelector('next');
+const back = document.querySelector('.back');
+const next = document.querySelector('.next');
 
 function setQuestion() {
-  // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数を実行
+  // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
   if (answerArray.length === NUM) {
     showResult();
     return;
@@ -111,6 +111,8 @@ function setQuestion() {
     // 最初の質問ではfirstQuestion配列を使用する
     case 0:
       const fq = firstQuestions.splice(Math.floor(Math.random() * firstQuestions.length), 1)[0];
+      // ランダムに選ばれた配列のformTypeを変数に代入して２回目以降の質問で使う
+      selectedFormType = fq.formType;
       // questionノードに問題文をセットする
       question.textContent = fq['question'];
       // answerAノードのテキストに回答文をセットする
@@ -122,9 +124,14 @@ function setQuestion() {
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
       break;
+
     // 最初の質問以外ではsecondQuestion配列を使用する
     default:
-      const sq = secondQuestions.splice(Math.floor(Math.random() * secondQuestions.length), 1)[0];
+      // selectedFormTypeとformTypeが同じものだけを抽出した配列を作成する
+      const filteredQuestions = secondQuestions.filter(item => item.formType === selectedFormType);
+      // ランダムに選び出す
+      const sq = filteredQuestions.splice(Math.floor(Math.random() * filteredQuestions.length), 1)[0];
+
       question.textContent = sq['question'];
       answerA.textContent = sq['answerA'];
       answerA.dataset.imgA = sq['imgA'];
@@ -139,6 +146,7 @@ function setQuestion() {
 function handleAnswerA() {
   // ユーザー回答に対応するdata-imgA属性の値（画像パス）を配列要素に追加する
   answerArray.push(answerA.dataset.imgA);
+  // 既存のイベントリスナーを解除する
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
@@ -162,19 +170,13 @@ function showResult() {
   result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
 }
 
-// 初期画面：タイトル表示
-// ３秒後：タイトル消える
-// setQuestion()実行
-// ユーザーが２回回答する
-// 結果表示される
+// 以下、実行文
+setTimeout(() => {
+  document.querySelector('h1').classList.add('hidden');
+}, 500);
 
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    document.querySelector('h1').classList.add('hidden');}, 1000);
-  });
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    document.querySelector('main').classList.remove('hidden');}, 1000);
-  });
+setTimeout(() => {
+  document.querySelector('main').classList.remove('hidden');
+}, 500);
 
-  setQuestion();
+setQuestion();
