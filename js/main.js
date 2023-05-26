@@ -1,13 +1,7 @@
 'use strict';
 const firstQuestions = [
-const firstQuestions = [
   {
     question: "今のあなたは",
-    answerA: "明るい", 
-      imgA: "img/6.png",
-    answerB: "暗い", 
-      imgB: "img/17.png",
-    formType: "sideBySide",
     answerA: "明るい", 
       imgA: "img/6.png",
     answerB: "暗い", 
@@ -21,14 +15,7 @@ const firstQuestions = [
     answerB: "魚",
       imgB: "img/8.png",
     formType: "verticalLine",
-    answerA: "肉", 
-      imgA: "img/3.png",
-    answerB: "魚",
-      imgB: "img/8.png",
-    formType: "verticalLine",
   },
-];
-const secondQuestions = [
 ];
 const secondQuestions = [
   {
@@ -38,11 +25,6 @@ const secondQuestions = [
     answerB: "猫",
       imgB: "img/27.png",
     formType: "sideBySide",
-    answerA: "犬",
-      imgA: "img/14.png",
-    answerB: "猫",
-      imgB: "img/27.png",
-    formType: "sideBySide",
   },
   {
     question: "どちらかと言えば",
@@ -51,20 +33,8 @@ const secondQuestions = [
     answerB: "一人でいたい",
       imgB: "img/25.png",
     formType: "sideBySide",
-    question: "どちらかと言えば",
-    answerA: "誰かと話したい",
-      imgA: "img/11.png",
-    answerB: "一人でいたい",
-      imgB: "img/25.png",
-    formType: "sideBySide",
   },
   {
-    question: "今の自分を天気でいうと",
-    answerA: "晴れ",
-      imgA: "img/2.png",
-    answerB: "曇り",
-      imgB: "img/7.png",
-    formType: "sideBySide",
     question: "今の自分を天気でいうと",
     answerA: "晴れ",
       imgA: "img/2.png",
@@ -79,19 +49,9 @@ const secondQuestions = [
     answerB: "海",
       imgB: "img/23.png",
     formType: "sideBySide",
-    answerA: "森",
-      imgA: "img/26.png",
-    answerB: "海",
-      imgB: "img/23.png",
-    formType: "sideBySide",
   },
   {
     question: "感情の波が",
-    answerA: "激しい",
-      imgA: "img/16.png",
-    answerB: "凪いでいる",
-      imgB: "img/23.png",
-    formType: "verticalLine",
     answerA: "激しい",
       imgA: "img/16.png",
     answerB: "凪いでいる",
@@ -105,11 +65,6 @@ const secondQuestions = [
     answerB: "派手",
       imgB: "img/12.png",
     formType: "verticalLine",
-    answerA: "ミニマル",
-      imgA: "img/30.png",
-    answerB: "派手",
-      imgB: "img/12.png",
-    formType: "verticalLine",
   },
   {
     question: "容姿のコンディションは",
@@ -118,19 +73,8 @@ const secondQuestions = [
     answerB: "かっこいい",
       imgB: "img/20.png",
     formType: "verticalLine",
-    answerA: "かわいい",
-      imgA: "img/19.png",
-    answerB: "かっこいい",
-      imgB: "img/20.png",
-    formType: "verticalLine",
   },
   {
-    question: "今眠りにつくなら",
-    answerA: "ハンモックの上",
-      imgA: "img/22.png",
-    answerB: "お布団の中",
-      imgB: "img/15.png",
-    formType: "verticalLine",
     question: "今眠りにつくなら",
     answerA: "ハンモックの上",
       imgA: "img/22.png",
@@ -143,15 +87,13 @@ const secondQuestions = [
 // ユーザーの回答を保有するための配列を定義
 const answerArray = [];
 
-// 出題数を定義
-const NUM = 2;
-
 // 最初の質問で選択された配列のformTypeを保持する変数
 let selectedFormType = null;
 
+// 出題数を定義
+const NUM = 2;
 
 const question = document.getElementById('question');
-const answerBoard = document.getElementById('answerBoard');
 const answerBoard = document.getElementById('answerBoard');
 const answerA = document.querySelector('.answerA');
 const answerB = document.querySelector('.answerB');
@@ -159,8 +101,6 @@ const back = document.querySelector('.back');
 const next = document.querySelector('.next');
 
 function setQuestion() {
-  // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数を実行
-  if (answerArray.length === NUM) {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数を実行
   if (answerArray.length === NUM) {
     showResult();
@@ -211,21 +151,12 @@ function handleAnswerA() {
 
 function handleAnswerB() {
   answerArray.push(answerB.dataset.imgB);
-  answerArray.push(answerB.dataset.imgB);
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
 }
 
 function showResult() {
-  const result01 = document.querySelector('.result01');
-  const result02 = document.querySelector('.result02');
-
-  question.remove();
-  answerBoard.remove();
-  //結果の表示内容を設定する
-  result01.innerHTML = `<img src="${answerArray[0]}" width="200" height="400">`;
-  result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
   const result01 = document.querySelector('.result01');
   const result02 = document.querySelector('.result02');
 
