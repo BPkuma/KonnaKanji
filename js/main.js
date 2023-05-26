@@ -83,8 +83,7 @@ const secondQuestions = [
     formType: "verticalLine",
   },
 ];
-
-// ユーザーの回答を保有するための配列を定義
+// ユーザーの回答を保有するための空の配列を定義
 const answerArray = [];
 
 // 最初の質問で選択された配列のformTypeを保持する変数
@@ -93,6 +92,7 @@ let selectedFormType = null;
 // 出題数を定義
 const NUM = 2;
 
+// 各種HTMLノードを取得して定数に代入
 const question = document.getElementById('question');
 const answerBoard = document.getElementById('answerBoard');
 const answerA = document.querySelector('.answerA');
@@ -101,7 +101,7 @@ const back = document.querySelector('.back');
 const next = document.querySelector('.next');
 
 function setQuestion() {
-  // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数を実行
+  // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
   if (answerArray.length === NUM) {
     showResult();
     return;
@@ -111,6 +111,7 @@ function setQuestion() {
     // 最初の質問ではfirstQuestion配列を使用する
     case 0:
       const fq = firstQuestions.splice(Math.floor(Math.random() * firstQuestions.length), 1)[0];
+      // ランダムに選ばれた配列のformTypeを変数に代入して２回目以降の質問で使う
       selectedFormType = fq.formType;
       // questionノードに問題文をセットする
       question.textContent = fq['question'];
@@ -123,6 +124,7 @@ function setQuestion() {
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
       break;
+
     // 最初の質問以外ではsecondQuestion配列を使用する
     default:
       // selectedFormTypeとformTypeが同じものだけを抽出した配列を作成する
@@ -144,6 +146,7 @@ function setQuestion() {
 function handleAnswerA() {
   // ユーザー回答に対応するdata-imgA属性の値（画像パス）を配列要素に追加する
   answerArray.push(answerA.dataset.imgA);
+  // 既存のイベントリスナーを解除する
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
@@ -167,6 +170,7 @@ function showResult() {
   result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
 }
 
+// 以下、実行文
 setTimeout(() => {
   document.querySelector('h1').classList.add('hidden');
 }, 500);
