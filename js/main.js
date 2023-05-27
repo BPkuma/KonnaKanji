@@ -137,13 +137,10 @@ const secondQuestions = [
 const answerArray = [];
 ////////////////////////回答済みの質問を保有するための空の配列を定義
 const answeredQuestions = [];
-
 // 最初の質問で選択された配列のformTypeを保持する変数
 let selectedFormType = null;
-
-// 出題数を定義
+// 出題数を定義/////////////////テストのため5にしてます
 const NUM = 5;
-
 // 各種HTMLノードを取得して定数に代入
 const question = document.getElementById('question');
 const answerBoard = document.getElementById('answerBoard');
@@ -153,7 +150,6 @@ const back = document.querySelector('.arrow.back');
 const next = document.querySelector('.arrow.next');
 ////////////////配列の初期状態を定数に代入
 const fullFirstQuestions = [...firstQuestions];
-
 
 function setQuestion() {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
@@ -209,7 +205,11 @@ function handleAnswerA() {
   answerArray.push(answerA.dataset.imgA);
 
   /////////////////////////回答済みの質問を配列に追加する
-  answeredQuestions.push({ question:question.textContent, answerA:answerA.textContent, answerB:answerB.textContent });  
+  answeredQuestions.push({ 
+    question:question.textContent, 
+    answerA:answerA.textContent, 
+    answerB:answerB.textContent 
+  });  
   
   // 既存のイベントリスナーを解除する
   answerA.removeEventListener('click', handleAnswerA);
@@ -221,65 +221,65 @@ function handleAnswerB() {
   answerArray.push(answerB.dataset.imgB);
 
   /////////////////////////回答済みの質問を配列に追加する
-  answeredQuestions.push({ question:question.textContent, answerA:answerA.textContent, answerB:answerB.textContent }); 
+  answeredQuestions.push({ 
+    question:question.textContent, 
+    answerA:answerA.textContent, 
+    answerB:answerB.textContent }); 
 
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
 }
 
-////////////////////////indexを初期化したい
+////////////////////////indexを初期化するファンクション
 let index;
-
 function initializeIndex() {
   index = answeredQuestions.length;
 }
-//////////////////////Back矢印がクリックされた際の処理追加
+//////////////////////Back矢印がクリックされた際のファンクション
 function handleBack() {
+  //////////////////indexがundefinedのときだけ初期化
   if (typeof index === 'undefined') {
     initializeIndex();
   }
+  ////////////////Back矢印がクリックされるたびにマイナス1
   --index;
-  // ユーザー回答の配列要素数によって何回目の質問かを判別し、場合分けする（イベントリスナー内の処理にsetQuestion()があるので規定質問数に達するまでループする）
-  switch (answerArray.length) {    
+  ////////////////回答済みの質問が存在するか判定
+  switch (answerArray.length) { 
+    ///////////////まだ1度も回答していないない場合
     case 0:  
+      ///////////////firstQuestionsのストックがまだあるなら、setQuestion()へ戻る
       if(firstQuestions.length > 0) {
         setQuestion();
       }
       else {
-        //////////////////////配列が空になったら初期化する
+        //////////////////////firstQuestionsのストックが無い場合は初期化する
         firstQuestions.push(...fullFirstQuestions);
       }
       break;
-    default:
-      //////////////前の質問と回答を表示      
-      /* console.log(answeredQuestions[index].question);
-      console.log(answeredQuestions[index].answerA);
-      console.log(answeredQuestions[index].answerB);
-      console.log(index); */
-
+    default:      
+      /////////////////////////indexが0以上の場合は質問と回答を1つ前のものにセット
       if (index >= 0) {
         question.textContent = answeredQuestions[index].question;
         answerA.textContent = answeredQuestions[index].answerA;
         answerB.textContent = answeredQuestions[index].answerB;
       }
-      ////////////////////////さらにback押されたら      
+      ////////////////////////さらにbackかnextがクリックされた場合      
       back.addEventListener('click', handleBack);   
       next.addEventListener('click', handleNext);  
-
       ///////////////////////////answer AかBがクリックされた場合
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
       break;      
   }
 }
+//////////////////////Next矢印がクリックされた際のファンクション
 function handleNext() {
   if (typeof index === 'undefined') {
     initializeIndex();
-  }
- 
+  } 
+  ////////////////Next矢印がクリックされるたびにプラス1
   ++index;
-  // ユーザー回答の配列要素数によって何回目の質問かを判別し、場合分けする（イベントリスナー内の処理にsetQuestion()があるので規定質問数に達するまでループする）
   switch (answerArray.length) {    
     case 0:  
       if(firstQuestions.length > 0) {
@@ -290,26 +290,23 @@ function handleNext() {
         firstQuestions.push(...fullFirstQuestions);
       }
       break;
+    /////////////////////////indexが0以上の場合は質問と回答を1つ次にセット
     default:     
-
       if (index < initializeIndex()) {
         console.log(answeredQuestions);
         question.textContent = answeredQuestions[index].question;
         answerA.textContent = answeredQuestions[index].answerA;
         answerB.textContent = answeredQuestions[index].answerB;
       }
-      ////////////////////////さらにback押されたら      
+      ////////////////////////さらにbackかnextがクリックされた場合   
       back.addEventListener('click', handleBack);   
       next.addEventListener('click', handleNext);  
-
-      ///////////////////////////answer AかBがクリックされた場合
+      ///////////////////////////answerAかBがクリックされた場合
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
       break;      
-  }
-  
+  }  
 }
-
 ///////////////////////////////////////////////////////
 
 function showResult() {
@@ -335,6 +332,10 @@ function autoSwitchToMain() {
 // 以下、実行文
 autoSwitchToMain();
 setQuestion();
+const totitle = document.querySelector('.totitle');
+totitle.addEventListener('click', autoSwitchToMain);
+console.log("document.querySelector('.totitle')");
+
 
 ///////////////////////表示確認用
 console.log();

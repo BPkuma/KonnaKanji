@@ -21,6 +21,7 @@
   display: none;
 }  
 /***********************トップ画面*******************************/
+/*タイトル*/
 h1 {
   width: 100%;
   height: 100%;
@@ -35,6 +36,26 @@ h1 {
   vertical-align: middle;
   font-size: 100px;
   font-weight: normal;
+}
+/*終了ボタン*/
+.totitle {
+  position: fixed;
+    top: 5%;
+    right: 10%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f00;
+    border: none;
+    cursor: pointer;
+}
+.totitle::after {
+  content: "×";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
 }
 /**************************質問・回答画面******************************/
 /*flexを入れ子にしてさらに調整*/
