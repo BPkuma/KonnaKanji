@@ -154,6 +154,7 @@ const next = document.querySelector('.arrow.next');
 ////////////////配列の初期状態を定数に代入
 const fullFirstQuestions = [...firstQuestions];
 
+
 function setQuestion() {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
   if (answerArray.length === NUM) {
@@ -209,8 +210,7 @@ function handleAnswerA() {
 
   /////////////////////////回答済みの質問を配列に追加する
   answeredQuestions.push({ question:question.textContent, answerA:answerA.textContent, answerB:answerB.textContent });  
-  //console.log(answeredQuestions);
-
+  
   // 既存のイベントリスナーを解除する
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
@@ -221,15 +221,25 @@ function handleAnswerB() {
   answerArray.push(answerB.dataset.imgB);
 
   /////////////////////////回答済みの質問を配列に追加する
-  answeredQuestions.push(question); 
+  answeredQuestions.push({ question:question.textContent, answerA:answerA.textContent, answerB:answerB.textContent }); 
 
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
 }
 
-//////////////////////矢印がクリックされた際の処理追加
+////////////////////////indexを初期化したい
+let index;
+
+function initializeIndex() {
+  index = answeredQuestions.length;
+}
+//////////////////////Back矢印がクリックされた際の処理追加
 function handleBack() {
+  if (typeof index === 'undefined') {
+    initializeIndex();
+  }
+  --index;
   // ユーザー回答の配列要素数によって何回目の質問かを判別し、場合分けする（イベントリスナー内の処理にsetQuestion()があるので規定質問数に達するまでループする）
   switch (answerArray.length) {    
     case 0:  
@@ -237,51 +247,69 @@ function handleBack() {
         setQuestion();
       }
       else {
-        //配列が空になったら初期化する
+        //////////////////////配列が空になったら初期化する
         firstQuestions.push(...fullFirstQuestions);
       }
       break;
     default:
-      //      
-      const bq = answeredQuestions.pop();
-      console.log(bq);      
+      //////////////前の質問と回答を表示      
+      /* console.log(answeredQuestions[index].question);
+      console.log(answeredQuestions[index].answerA);
+      console.log(answeredQuestions[index].answerB);
+      console.log(index); */
 
-      if(bq !== null && bq !== undefined) {
-      question.textContent = bq.question;
-      answerA.textContent = bq.answerA;
-      answerB.textContent = bq.answerB;
+      if (index >= 0) {
+        question.textContent = answeredQuestions[index].question;
+        answerA.textContent = answeredQuestions[index].answerA;
+        answerB.textContent = answeredQuestions[index].answerB;
+      }
+      ////////////////////////さらにback押されたら      
+      back.addEventListener('click', handleBack);   
+      next.addEventListener('click', handleNext);  
+
+      ///////////////////////////answer AかBがクリックされた場合
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
-      }
-      break;
-
-      /*handleBack(); */
-
-      /* console.log(bq[currentIndex]);
-      console.log(bq);
-      console.log(currentIndex);
- */
-      
-
-
-        
-        
-
-        /* document.querySelector('h1').classList.remove('hidden');
-        document.querySelector('main').classList.add('hidden');
-        autoSwitchToMain();
-        console.log(firstQuestions); */
-        
-        /* setQuestion(); */
-      //}
-    
-    
-      
+      break;      
   }
 }
 function handleNext() {
-  setQuestion();
+  if (typeof index === 'undefined') {
+    initializeIndex();
+  }
+ 
+  ++index;
+  // ユーザー回答の配列要素数によって何回目の質問かを判別し、場合分けする（イベントリスナー内の処理にsetQuestion()があるので規定質問数に達するまでループする）
+  switch (answerArray.length) {    
+    case 0:  
+      if(firstQuestions.length > 0) {
+        setQuestion();
+      }
+      else {
+        //////////////////////配列が空になったら初期化する
+        firstQuestions.push(...fullFirstQuestions);
+      }
+      break;
+    default:     
+
+      if (index < initializeIndex()) {
+        console.log(answeredQuestions);
+        question.textContent = answeredQuestions[index].question;
+        answerA.textContent = answeredQuestions[index].answerA;
+        answerB.textContent = answeredQuestions[index].answerB;
+      }
+      ////////////////////////さらにback押されたら      
+      back.addEventListener('click', handleBack);   
+      next.addEventListener('click', handleNext);  
+
+      ///////////////////////////answer AかBがクリックされた場合
+      answerA.addEventListener('click', handleAnswerA);
+      answerB.addEventListener('click', handleAnswerB);
+      break;      
+  }
+  
 }
+
 ///////////////////////////////////////////////////////
 
 function showResult() {
