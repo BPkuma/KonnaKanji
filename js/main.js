@@ -16,7 +16,7 @@ const firstQuestions = [
       imgB: "img/8.png",
     formType: "verticalLine",
   },
-  //テストクエスチョン
+  /////////////テストクエスチョン一時追加
   {
     question: "てすと1",
     answerA: "肉", 
@@ -107,15 +107,42 @@ const secondQuestions = [
       imgB: "img/15.png",
     formType: "verticalLine",
   },
+  /////////////テストクエスチョン一時追加
+  {
+    question: "てすと続き1",
+    answerA: "肉", 
+      imgA: "img/3.png",
+    answerB: "魚",
+      imgB: "img/8.png",
+    formType: "verticalLine",
+  },
+  {
+    question: "てすと続き2",
+    answerA: "肉", 
+      imgA: "img/3.png",
+    answerB: "魚",
+      imgB: "img/8.png",
+    formType: "verticalLine",
+  },
+  {
+    question: "てすと続き3",
+    answerA: "肉", 
+      imgA: "img/3.png",
+    answerB: "魚",
+      imgB: "img/8.png",
+    formType: "verticalLine",
+  },
 ];
 // ユーザーの回答を保有するための空の配列を定義
 const answerArray = [];
+////////////////////////回答済みの質問を保有するための空の配列を定義
+const answeredQuestions = [];
 
 // 最初の質問で選択された配列のformTypeを保持する変数
 let selectedFormType = null;
 
 // 出題数を定義
-const NUM = 2;
+const NUM = 5;
 
 // 各種HTMLノードを取得して定数に代入
 const question = document.getElementById('question');
@@ -138,8 +165,6 @@ function setQuestion() {
     // 最初の質問ではfirstQuestion配列を使用する
     case 0:
       const fq = firstQuestions.splice(Math.floor(Math.random() * firstQuestions.length), 1)[0];
-      console.log(fq);
-      console.log(firstQuestions);
       // ランダムに選ばれた配列のformTypeを変数に代入して２回目以降の質問で使う
       selectedFormType = fq.formType;
       // questionノードに問題文をセットする
@@ -181,14 +206,23 @@ function setQuestion() {
 function handleAnswerA() {
   // ユーザー回答に対応するdata-imgA属性の値（画像パス）を配列要素に追加する
   answerArray.push(answerA.dataset.imgA);
+
+  /////////////////////////回答済みの質問を配列に追加する
+  answeredQuestions.push({ question:question.textContent, answerA:answerA.textContent, answerB:answerB.textContent });  
+  //console.log(answeredQuestions);
+
   // 既存のイベントリスナーを解除する
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
-  setQuestion();
+  setQuestion();  
 }
 
 function handleAnswerB() {
   answerArray.push(answerB.dataset.imgB);
+
+  /////////////////////////回答済みの質問を配列に追加する
+  answeredQuestions.push(question); 
+
   answerA.removeEventListener('click', handleAnswerA);
   answerB.removeEventListener('click', handleAnswerB);
   setQuestion();
@@ -203,12 +237,33 @@ function handleBack() {
         setQuestion();
       }
       else {
-        //配列が空の場合、再度初期化する
+        //配列が空になったら初期化する
         firstQuestions.push(...fullFirstQuestions);
-        console.log(firstQuestions);
-        setQuestion();
       }
-      //else if (firstQuestions === 0) {
+      break;
+    default:
+      //      
+      const bq = answeredQuestions.pop();
+      console.log(bq);      
+
+      if(bq !== null && bq !== undefined) {
+      question.textContent = bq.question;
+      answerA.textContent = bq.answerA;
+      answerB.textContent = bq.answerB;
+      answerA.addEventListener('click', handleAnswerA);
+      answerB.addEventListener('click', handleAnswerB);
+      }
+      break;
+
+      /*handleBack(); */
+
+      /* console.log(bq[currentIndex]);
+      console.log(bq);
+      console.log(currentIndex);
+ */
+      
+
+
         
         
 
@@ -219,9 +274,8 @@ function handleBack() {
         
         /* setQuestion(); */
       //}
-    break;
-    default:
-      console.log('未実装');
+    
+    
       
   }
 }
