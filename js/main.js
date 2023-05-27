@@ -16,6 +16,31 @@ const firstQuestions = [
       imgB: "img/8.png",
     formType: "verticalLine",
   },
+  //テストクエスチョン
+  {
+    question: "てすと1",
+    answerA: "肉", 
+      imgA: "img/3.png",
+    answerB: "魚",
+      imgB: "img/8.png",
+    formType: "verticalLine",
+  },
+  {
+    question: "てすと2",
+    answerA: "肉", 
+      imgA: "img/3.png",
+    answerB: "魚",
+      imgB: "img/8.png",
+    formType: "verticalLine",
+  },
+  {
+    question: "てすと3",
+    answerA: "肉", 
+      imgA: "img/3.png",
+    answerB: "魚",
+      imgB: "img/8.png",
+    formType: "verticalLine",
+  },
 ];
 const secondQuestions = [
   {
@@ -97,8 +122,10 @@ const question = document.getElementById('question');
 const answerBoard = document.getElementById('answerBoard');
 const answerA = document.querySelector('.answerA');
 const answerB = document.querySelector('.answerB');
-const back = document.querySelector('.back');
-const next = document.querySelector('.next');
+const back = document.querySelector('.arrow.back');
+const next = document.querySelector('.arrow.next');
+////////////////配列の初期状態を定数に代入
+const fullFirstQuestions = [...firstQuestions];
 
 function setQuestion() {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
@@ -111,6 +138,8 @@ function setQuestion() {
     // 最初の質問ではfirstQuestion配列を使用する
     case 0:
       const fq = firstQuestions.splice(Math.floor(Math.random() * firstQuestions.length), 1)[0];
+      console.log(fq);
+      console.log(firstQuestions);
       // ランダムに選ばれた配列のformTypeを変数に代入して２回目以降の質問で使う
       selectedFormType = fq.formType;
       // questionノードに問題文をセットする
@@ -120,9 +149,12 @@ function setQuestion() {
       // answerAノードのdata-imgA属性に画像パスをセットする
       answerA.dataset.imgA = fq['imgA'];
       answerB.textContent = fq['answerB'];
-      answerB.dataset.imgB = fq['imgB'];
+      answerB.dataset.imgB = fq['imgB'];      
       answerA.addEventListener('click', handleAnswerA);
-      answerB.addEventListener('click', handleAnswerB);
+      answerB.addEventListener('click', handleAnswerB);   
+      ////////////////////////////////////矢印がクリックされた場合追加
+      back.addEventListener('click', handleBack);   
+      next.addEventListener('click', handleNext);   
       break;
 
     // 最初の質問以外ではsecondQuestion配列を使用する
@@ -139,6 +171,9 @@ function setQuestion() {
       answerB.dataset.imgB = sq['imgB'];
       answerA.addEventListener('click', handleAnswerA);
       answerB.addEventListener('click', handleAnswerB);
+      ////////////////////////////////////矢印がクリックされた場合追加
+      back.addEventListener('click', handleBack);   
+      next.addEventListener('click', handleNext); 
       break;
   }
 }
@@ -159,6 +194,42 @@ function handleAnswerB() {
   setQuestion();
 }
 
+//////////////////////矢印がクリックされた際の処理追加
+function handleBack() {
+  // ユーザー回答の配列要素数によって何回目の質問かを判別し、場合分けする（イベントリスナー内の処理にsetQuestion()があるので規定質問数に達するまでループする）
+  switch (answerArray.length) {    
+    case 0:  
+      if(firstQuestions.length > 0) {
+        setQuestion();
+      }
+      else {
+        //配列が空の場合、再度初期化する
+        firstQuestions.push(...fullFirstQuestions);
+        console.log(firstQuestions);
+        setQuestion();
+      }
+      //else if (firstQuestions === 0) {
+        
+        
+
+        /* document.querySelector('h1').classList.remove('hidden');
+        document.querySelector('main').classList.add('hidden');
+        autoSwitchToMain();
+        console.log(firstQuestions); */
+        
+        /* setQuestion(); */
+      //}
+    break;
+    default:
+      console.log('未実装');
+      
+  }
+}
+function handleNext() {
+  setQuestion();
+}
+///////////////////////////////////////////////////////
+
 function showResult() {
   const result01 = document.querySelector('.result01');
   const result02 = document.querySelector('.result02');
@@ -167,16 +238,21 @@ function showResult() {
   answerBoard.remove();
   //結果の表示内容を設定する
   result01.innerHTML = `<img src="${answerArray[0]}" width="200" height="400">`;
-  result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
+  result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;  
 }
 
+///////////////トップ画面から質問画面への処理をファンクションにする
+function autoSwitchToMain() {
+  setTimeout(() => {
+    document.querySelector('h1').classList.add('hidden');
+  }, 500);
+  setTimeout(() => {
+    document.querySelector('main').classList.remove('hidden');
+  }, 500);  
+}
 // 以下、実行文
-setTimeout(() => {
-  document.querySelector('h1').classList.add('hidden');
-}, 500);
-
-setTimeout(() => {
-  document.querySelector('main').classList.remove('hidden');
-}, 500);
-
+autoSwitchToMain();
 setQuestion();
+
+///////////////////////表示確認用
+console.log();
