@@ -16,31 +16,6 @@ const firstQuestions = [
       imgB: "img/8.png",
     formType: "verticalLine",
   },
-  /////////////テストクエスチョン一時追加
-  {
-    question: "てすと1",
-    answerA: "肉", 
-      imgA: "img/3.png",
-    answerB: "魚",
-      imgB: "img/8.png",
-    formType: "verticalLine",
-  },
-  {
-    question: "てすと2",
-    answerA: "肉", 
-      imgA: "img/3.png",
-    answerB: "魚",
-      imgB: "img/8.png",
-    formType: "verticalLine",
-  },
-  {
-    question: "てすと3",
-    answerA: "肉", 
-      imgA: "img/3.png",
-    answerB: "魚",
-      imgB: "img/8.png",
-    formType: "verticalLine",
-  },
 ];
 const secondQuestions = [
   {
@@ -106,32 +81,7 @@ const secondQuestions = [
     answerB: "お布団の中",
       imgB: "img/15.png",
     formType: "verticalLine",
-  },
-  /////////////テストクエスチョン一時追加
-  {
-    question: "てすと続き1",
-    answerA: "肉", 
-      imgA: "img/3.png",
-    answerB: "魚",
-      imgB: "img/8.png",
-    formType: "verticalLine",
-  },
-  {
-    question: "てすと続き2",
-    answerA: "肉", 
-      imgA: "img/3.png",
-    answerB: "魚",
-      imgB: "img/8.png",
-    formType: "verticalLine",
-  },
-  {
-    question: "てすと続き3",
-    answerA: "肉", 
-      imgA: "img/3.png",
-    answerB: "魚",
-      imgB: "img/8.png",
-    formType: "verticalLine",
-  },
+  },  
 ];
 // ユーザーの回答を保有するための空の配列を定義
 const answerArray = [];
@@ -139,8 +89,8 @@ const answerArray = [];
 const answeredQuestions = [];
 // 最初の質問で選択された配列のformTypeを保持する変数
 let selectedFormType = null;
-// 出題数を定義/////////////////テストのため5にしてます
-const NUM = 5;
+// 出題数を定義
+const NUM = 2;
 // 各種HTMLノードを取得して定数に代入
 const question = document.getElementById('question');
 const answerBoard = document.getElementById('answerBoard');
@@ -325,19 +275,18 @@ function showResult() {
 
 ///////////////トップ画面から質問画面への処理をファンクションにする
 function autoSwitchToMain() {
-  main.classList.add('hidden'); // 初期状態ではメインコンテンツを非表示にする
-
-  h1.classList.remove('hidden'); // クリック時にタイトルを表示する
+  ////////////// 初期状態ではメインコンテンツを非表示にする
+  main.classList.add('hidden');   
+  ///////////// クリック時にタイトルを表示する
+  h1.classList.remove('hidden'); 
   setTimeout(() => {
     h1.classList.add('hidden');
     main.classList.remove('hidden');
-  }, 500);}
+  }, 500);
+}
 
 // 以下、実行文
 autoSwitchToMain();
 setQuestion();
 const totitle = document.getElementById('totitle');
 totitle.addEventListener('click', autoSwitchToMain);
-
-///////////////////////表示確認用
-console.log();
