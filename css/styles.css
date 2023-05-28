@@ -38,7 +38,7 @@ h1 {
   font-weight: normal;
 }
 /*終了ボタン*/
-.totitle {
+#totitle {
   position: fixed;
     top: 5%;
     right: 10%;
@@ -49,7 +49,7 @@ h1 {
     border: none;
     cursor: pointer;
 }
-.totitle::after {
+#totitle::after {
   content: "×";
   position: absolute;
   top: 50%;

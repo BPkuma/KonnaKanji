@@ -150,6 +150,9 @@ const back = document.querySelector('.arrow.back');
 const next = document.querySelector('.arrow.next');
 ////////////////配列の初期状態を定数に代入
 const fullFirstQuestions = [...firstQuestions];
+///////////////hiddenを付け替えたい要素を定数に代入
+const h1 = document.querySelector('h1');
+const main = document.querySelector('main');
 
 function setQuestion() {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
@@ -322,20 +325,19 @@ function showResult() {
 
 ///////////////トップ画面から質問画面への処理をファンクションにする
 function autoSwitchToMain() {
+  main.classList.add('hidden'); // 初期状態ではメインコンテンツを非表示にする
+
+  h1.classList.remove('hidden'); // クリック時にタイトルを表示する
   setTimeout(() => {
-    document.querySelector('h1').classList.add('hidden');
-  }, 500);
-  setTimeout(() => {
-    document.querySelector('main').classList.remove('hidden');
-  }, 500);  
-}
+    h1.classList.add('hidden');
+    main.classList.remove('hidden');
+  }, 500);}
+
 // 以下、実行文
 autoSwitchToMain();
 setQuestion();
-const totitle = document.querySelector('.totitle');
+const totitle = document.getElementById('totitle');
 totitle.addEventListener('click', autoSwitchToMain);
-console.log("document.querySelector('.totitle')");
-
 
 ///////////////////////表示確認用
 console.log();
