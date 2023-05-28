@@ -97,8 +97,11 @@ const question = document.getElementById('question');
 const answerBoard = document.getElementById('answerBoard');
 const answerA = document.querySelector('.answerA');
 const answerB = document.querySelector('.answerB');
-const back = document.querySelector('.back');
-const next = document.querySelector('.next');
+const back = document.querySelector('.arrow.back');
+const next = document.querySelector('.arrow.next');
+///////////////hiddenを付け替えたい要素を定数に代入
+const h1 = document.querySelector('h1');
+const main = document.querySelector('main');
 
 function setQuestion() {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
@@ -122,7 +125,7 @@ function setQuestion() {
       answerB.textContent = fq['answerB'];
       answerB.dataset.imgB = fq['imgB'];
       answerA.addEventListener('click', handleAnswerA);
-      answerB.addEventListener('click', handleAnswerB);
+      answerB.addEventListener('click', handleAnswerB);   
       break;
 
     // 最初の質問以外ではsecondQuestion配列を使用する
@@ -170,13 +173,30 @@ function showResult() {
   result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
 }
 
+///////////////トップ画面から質問画面への処理をファンクションにする
+function autoSwitchToMain() {
+  //////////////////漢字の画像が表示されているかどうかの確認用
+  const imgsrc = document.querySelector('img src');  
+  ////////////// 初期状態ではメインコンテンツを非表示にする
+  main.classList.add('hidden');   
+  ///////////// クリック時にタイトルを表示する
+  h1.classList.remove('hidden'); 
+    if(imgsrc !== null) {
+      location.reload();
+    }
+  setTimeout(() => {
+    h1.classList.add('hidden');
+    main.classList.remove('hidden');
+  }, 500);
+}
+
 // 以下、実行文
-setTimeout(() => {
-  document.querySelector('h1').classList.add('hidden');
-}, 500);
-
-setTimeout(() => {
-  document.querySelector('main').classList.remove('hidden');
-}, 500);
-
+autoSwitchToMain();
 setQuestion();
+const totitle = document.getElementById('totitle');
+totitle.addEventListener('click', function() {
+  location.reload();
+});
+
+///////////////テスト用
+
