@@ -99,9 +99,19 @@ const answerA = document.querySelector('.answerA');
 const answerB = document.querySelector('.answerB');
 const back = document.querySelector('.arrow.back');
 const next = document.querySelector('.arrow.next');
-///////////////hiddenを付け替えたい要素を定数に代入
+///////////////////////hiddenを付け替えたい要素を定数に代入
 const h1 = document.querySelector('h1');
 const main = document.querySelector('main');
+//////////////////////////タイトルに戻るボタンを定数に代入
+const totitle = document.getElementById('totitle');
+//////////////////////////////////////////日時表示用
+const now = new Date();
+const year = now.getFullYear();
+const month = now.getMonth();
+const date = now.getDate();
+const today = `${year}.${month + 1}.${date}`;
+//////////////////漢字画像が表示されているかどうかの確認用
+const imgsrc = document.querySelector('img src');  
 
 function setQuestion() {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
@@ -171,12 +181,12 @@ function showResult() {
   //結果の表示内容を設定する
   result01.innerHTML = `<img src="${answerArray[0]}" width="200" height="400">`;
   result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
+  ///////////////////////今日の日付を表示
+  document.querySelector('.ending').classList.remove('hidden');
 }
 
 ///////////////トップ画面から質問画面への処理をファンクションにする
-function autoSwitchToMain() {
-  //////////////////漢字の画像が表示されているかどうかの確認用
-  const imgsrc = document.querySelector('img src');  
+function autoSwitchToMain() {  
   ////////////// 初期状態ではメインコンテンツを非表示にする
   main.classList.add('hidden');   
   ///////////// クリック時にタイトルを表示する
@@ -193,10 +203,12 @@ function autoSwitchToMain() {
 // 以下、実行文
 autoSwitchToMain();
 setQuestion();
-const totitle = document.getElementById('totitle');
+///////ホームボタン
 totitle.addEventListener('click', function() {
   location.reload();
 });
+//////日時表示
+document.querySelector('.date').textContent = today;
 
 ///////////////テスト用
 
