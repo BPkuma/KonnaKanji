@@ -110,7 +110,26 @@ a {
 }    
 
 /******************漢字の結果画面******************************/
+/*漢字*/
   #resultField {
     display: flex;
     margin-top: 100px;
+  }
+
+/*漢字の下*/
+  .ending {
+    text-align: center;
+  }
+  .kanji {
+    font-size: 50px;
+    margin-top: 30px;
+  }
+  .date {
+    font-size: 30px;
+  }
+  #save {
+    cursor: pointer;
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 0 10px;
   }

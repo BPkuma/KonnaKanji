@@ -211,9 +211,26 @@ totitle.addEventListener('click', function() {
 document.querySelector('.date').textContent = today;
 
 ///////////////テスト用
-html2canvas(document.getElementById('saveimage')).then(function(canvas) {
-  // キャプチャされた画像データを取得します
-let image = canvas.toDataURL('image/png');
-console.log(image);
-});
 
+
+///////////////html2camvas
+save.addEventListener('click', function() {
+  const save = document.getElementById('save')
+  const saveimage = document.getElementById('saveimage');
+  const getimage = document.getElementById('getimage');
+  const img = document.querySelector('img');
+  const src = img.src;
+
+  if(src != undefined) {
+    html2canvas(document.querySelector('#saveimage')).then(canvas => {
+        document.body.appendChild(canvas)
+      });
+    save.addEventListener('click', function() {
+      html2canvas(saveimage).then(canvas => {
+        getimage.setAttribute('href', canvas.toDataURL());
+        getimage.setAttribute('download', 'sample.png');
+        getimage.click();
+      });
+    });
+  }
+});
