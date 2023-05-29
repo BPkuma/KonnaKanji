@@ -211,4 +211,9 @@ totitle.addEventListener('click', function() {
 document.querySelector('.date').textContent = today;
 
 ///////////////テスト用
+html2canvas(document.getElementById('saveimage')).then(function(canvas) {
+  // キャプチャされた画像データを取得します
+let image = canvas.toDataURL('image/png');
+console.log(image);
+});
 
