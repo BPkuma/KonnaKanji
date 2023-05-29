@@ -1,94 +1,116 @@
 @charset "utf-8";
-    /* リセットCSS */
-    * {
-      margin: 0;
-      box-sizing: border-box;
-    }
+/* リセットCSS */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 
-    /*コンテナで全体を囲んで配置を調整*/
-    .container {
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+/*コンテナで全体を囲んで配置を調整*/
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    /*隠したい要素*/
-    .hidden, #answerBoard.hidden, #question.hidden {
-      display: none;
-    }
+/*隠したい要素*/
+.hidden, #answerBoard.hidden, #question.hidden {
+  display: none;
+}  
+/***********************トップ画面*******************************/
+/*タイトル*/
+h1 {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: table-cell;
+  writing-mode: vertical-lr;
+  vertical-align: middle;
+  font-size: 100px;
+  font-weight: normal;
+}
+/*終了ボタン*/
+#totitle {
+  position: fixed;
+    top: 5%;
+    right: 10%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f00;
+    border: none;
+    cursor: pointer;
+}
+#totitle::after {
+  content: "×";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
+}
+/**************************質問・回答画面******************************/
+/*flexを入れ子にしてさらに調整*/
+main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;     
+}    
 
-    
+/*質問*/
+#question {
+  text-align: center;
+  /* background-color: pink; */
+  writing-mode: vertical-lr;
+  vertical-align: middle;
+  font-size: 50px;
+  height: 80%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    h1 {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      display: table-cell;
-      writing-mode: vertical-lr;
-      vertical-align: middle;
-      font-size: 100px;
-      font-weight: normal;
-      /* background-color: aqua; */
-    }
+/*回答*/
+#answerBoard {
+  display: flex;
+  height: 100%;
+  background-color: red;
+  width: 100%;
+  text-align: center;
+}
 
-    /*flexを入れ子にしてさらに調整*/
-    main {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;     
-    }    
+a {
+  display: block;
+}
 
-    #question {
-      text-align: center;
-      /* background-color: pink; */
-      writing-mode: vertical-lr;
-      vertical-align: middle;
-      font-size: 50px;
-      height: 80%;
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.answerA,
+.answerB {
+  margin: 0 auto;
+  border: 1px solid blue;
+  cursor: pointer;
+  width: 50%;
+  font-size: 60px;
+  height: 30%;
+  padding: 0;
+}    
 
-    #answerBoard {
-      display: flex;
-      height: 100%;
-      background-color: red;
-      width: 100%;
-    }
-
-    a {
-      display: block;
-    }
-
-    .answerA,
-    .answerB {
-      margin: 0 auto;
-      border: 1px solid blue;
-      cursor: pointer;
-      width: 50%;
-      font-size: 60px;
-      height: 30%;
-      padding: 0 10px 0 100px;
-    }
-
-    #resultField {
-      display: flex;
-      /* background-color: orange; */
-    }
+/******************漢字の結果画面******************************/
+  #resultField {
+    display: flex;
+    margin-top: 100px;
+  }
