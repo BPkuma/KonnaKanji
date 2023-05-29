@@ -127,7 +127,7 @@ a {
   .date {
     font-size: 30px;
   }
-  #save {
+  .savetext {
     cursor: pointer;
     font-size: 30px;
     border: 1px solid black;

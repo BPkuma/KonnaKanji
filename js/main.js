@@ -102,16 +102,23 @@ const next = document.querySelector('.arrow.next');
 ///////////////////////hiddenを付け替えたい要素を定数に代入
 const h1 = document.querySelector('h1');
 const main = document.querySelector('main');
-//////////////////////////タイトルに戻るボタンを定数に代入
+//////////////////////////タイトルに戻るボタン要素を定数に代入
 const totitle = document.getElementById('totitle');
-//////////////////////////////////////////日時表示用
+//////////////////////////////////////////日時を取得して定数に代入
 const now = new Date();
 const year = now.getFullYear();
 const month = now.getMonth();
 const date = now.getDate();
 const today = `${year}.${month + 1}.${date}`;
-//////////////////漢字画像が表示されているかどうかの確認用
+//////////////////漢字画像が格納される要素を定数に代入
 const imgsrc = document.querySelector('img src');  
+////////////////////「画像を保存ボタンの要素を定数に代入
+const save = document.getElementById('save')
+const saveimage = document.getElementById('saveimage');
+///////////////////漢字画像のパスを取得し定数に代入
+const getimage = document.getElementById('getimage');
+const img = document.querySelector('img');
+const src = img.src; 
 
 function setQuestion() {
   // ユーザー回答の配列要素が規定の出題数に達したら、結果を表示する関数showResult()を実行
@@ -183,6 +190,8 @@ function showResult() {
   result02.innerHTML = `<img src="${answerArray[1]}" width="200" height="400">`;
   ///////////////////////今日の日付を表示
   document.querySelector('.ending').classList.remove('hidden');
+  //////////////////////画像保存のボタン表示  
+  document.querySelector('.savetext').classList.remove('hidden');
 }
 
 ///////////////トップ画面から質問画面への処理をファンクションにする
@@ -212,24 +221,19 @@ document.querySelector('.date').textContent = today;
 
 /////////////////////////////html2camvas 画像保存ボタンクリック時
 save.addEventListener('click', function() {
-  //html2canvas用の定義
-  const save = document.getElementById('save')
-  const saveimage = document.getElementById('saveimage');
-  //漢字画像のパスを取得するために定義
-  const getimage = document.getElementById('getimage');
-  const img = document.querySelector('img');
-  const src = img.src;
+   
   //漢字画像にパスが書き込まれたタイミングで
   if(src != undefined) {
     html2canvas(document.querySelector('#saveimage')).then(canvas => {
-        document.body.appendChild(canvas)
-      });
-    save.addEventListener('click', function() {
-      html2canvas(saveimage).then(canvas => {
-        console.log(getimage.setAttribute('href', canvas.toDataURL()));
-        getimage.setAttribute('download', 'sample.png');
-        getimage.click();
-      });
     });
+    html2canvas(saveimage).then(canvas => {
+      console.log(getimage.setAttribute('href', canvas.toDataURL()));
+      getimage.setAttribute('download', 'sample.png');
+      getimage.click();
+      //ダウンロード成功・失敗のアナウンス
+      save.textContent = '成功！';
+    }).catch(error => {
+      save.textContent = '失敗';
+    });      
   }
 });
