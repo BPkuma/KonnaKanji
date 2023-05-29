@@ -289,4 +289,6 @@ function autoSwitchToMain() {
 autoSwitchToMain();
 setQuestion();
 const totitle = document.getElementById('totitle');
-totitle.addEventListener('click', autoSwitchToMain);
+totitle.addEventListener('click', () => {
+  window.location.reload();
+});
