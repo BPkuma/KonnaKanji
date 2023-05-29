@@ -54,6 +54,14 @@ GitHubのリポジトリの「Settings」 -> 「branches」 -> 「Branch protect
 11.　ターミナルのmainブランチに戻りpushした人はローカルのブランチも削除しておく：`git branch -D <作業していたブランチ名>`<br><br>
 12.　最初に戻る<br><br>
 
+# リポジトリ内の特定のブランチをpullしたい
+git cloneした後、リポジトリ内の他のブランチをpullする時は
+
+$ git pull origin pullしたいリモートブランチ名:ローカルブランチ名
+例えば、リモートにあるgh-pagesというブランチをローカルのtestというブランチに持ってきたいときはこう。
+
+$ git pull origin gh-pages:test
+
 ## commitコメントの書き方
 一目で何をしたのかわかるようにコメントをつけましょう。<br>
 例）
