@@ -210,24 +210,23 @@ totitle.addEventListener('click', function() {
 //////日時表示
 document.querySelector('.date').textContent = today;
 
-///////////////テスト用
-
-
-///////////////html2camvas
+/////////////////////////////html2camvas 画像保存ボタンクリック時
 save.addEventListener('click', function() {
+  //html2canvas用の定義
   const save = document.getElementById('save')
   const saveimage = document.getElementById('saveimage');
+  //漢字画像のパスを取得するために定義
   const getimage = document.getElementById('getimage');
   const img = document.querySelector('img');
   const src = img.src;
-
+  //漢字画像にパスが書き込まれたタイミングで
   if(src != undefined) {
     html2canvas(document.querySelector('#saveimage')).then(canvas => {
         document.body.appendChild(canvas)
       });
     save.addEventListener('click', function() {
       html2canvas(saveimage).then(canvas => {
-        getimage.setAttribute('href', canvas.toDataURL());
+        console.log(getimage.setAttribute('href', canvas.toDataURL()));
         getimage.setAttribute('download', 'sample.png');
         getimage.click();
       });
