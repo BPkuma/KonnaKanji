@@ -19,7 +19,7 @@ const firstQuestions = [
   {
     question: "今戯れるなら",
     answerA: "犬",
-      imgA: "images/cover1-1",
+      imgA: "images/cover1-1.png",
     answerB: "猫",
       imgB: "images/cover1-2.png",
     formType: "cover",
@@ -143,7 +143,7 @@ const secondQuestions = [
     answerA: "ある",
       imgA: "images/cover2-3.png",
     answerB: "ない",
-      imgB: "images/2-4.png",
+      imgB: "images/cover2-4.png",
     formType: "cover",
   },
   {
