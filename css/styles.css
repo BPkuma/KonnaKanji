@@ -114,6 +114,7 @@ a {
   #resultField {
     display: flex;
     margin-top: 100px;
+<<<<<<< HEAD
   }
 
 /*漢字の下*/
@@ -132,4 +133,19 @@ a {
     font-size: 30px;
     border: 1px solid black;
     padding: 0 10px;
+=======
+    position: relative;
+  }
+  .result01 > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+  }
+  .result02 > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+>>>>>>> main
   }
