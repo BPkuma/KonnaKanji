@@ -221,7 +221,7 @@ document.querySelector('.date').textContent = today;
 
 /////////////////////////////html2camvas 画像保存ボタンクリック時
 save.addEventListener('click', function() {
-   
+  
   //漢字画像にパスが書き込まれたタイミングで
   if(src != undefined) {
     html2canvas(document.querySelector('#saveimage')).then(canvas => {
