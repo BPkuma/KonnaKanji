@@ -354,8 +354,8 @@ function showResult() {
   question.remove();
   answerBoard.remove();
   //結果の表示内容を設定する
-  result01.innerHTML = `<img src="${answerArray[0]}" width="400" height="400">`;
-  result02.innerHTML = `<img src="${answerArray[1]}" width="400" height="400">`;
+  result01.innerHTML = `<img src="${answerArray[0]}" width="300" height="300">`;
+  result02.innerHTML = `<img src="${answerArray[1]}" width="300" height="300">`;
   ///////////////////////今日の日付を表示
   document.querySelector('.ending').classList.remove('hidden');
   //////////////////////画像保存のボタン表示  

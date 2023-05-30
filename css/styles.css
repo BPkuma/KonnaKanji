@@ -119,6 +119,10 @@ a {
 /*漢字の下*/
   .ending {
     text-align: center;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%, 0%);
   }
   .kanji {
     font-size: 50px;
@@ -127,6 +131,9 @@ a {
   .date {
     font-size: 30px;
   }
+  .saveimage {
+    position: relative;
+  }
   .savetext {
     cursor: pointer;
     font-size: 30px;
@@ -134,15 +141,21 @@ a {
     padding: 0 10px;
     position: relative;
   }
+  #save,
+  #getimage {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+  }
   .result01 > img {
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, 25%);
+    transform: translate(-50%, 0%);
   }
   .result02 > img {
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, 25%);
+    transform: translate(-50%, 0%);
   }
