@@ -120,11 +120,7 @@ a {
 
 /*漢字の下*/
   .ending {
-    text-align: center;
-    position: absolute;
-    top: 250px;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    text-align: center;    
   }
   .kanji {
     font-size: 35px;
@@ -143,12 +139,7 @@ a {
     padding: 0 10px;
     position: relative;
   }
-  #save,
-  #getimage {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-  }
+  
   .result01 > img {
     position: absolute;
     top: 0%;
