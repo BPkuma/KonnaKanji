@@ -24,14 +24,20 @@
         <div class="answerB"><a href="#"></a></div>
       </div>      
 
-      <div id="resultField">
-        <div class="result01"><img src=""></div>
-        <div class="result02"><img src=""></div>
+      <div id="saveimage">
+        <div id="resultField">
+          <div class="result01"><img src=""></div>
+          <div class="result02"><img src=""></div>
+        </div>
+        <div class="ending hidden">
+          <p class="kanji">こんな漢字！</p>
+          <p class="date"></p>
+        </div>
       </div>
-      <div class="ending hidden">
-        <p class="kanji">こんな漢字！</p>
-        <p class="date"></p>
-      </div>
+        <div class="savetext hidden">
+          <div id="save">画像保存</div>          
+          <a id="getimage" href="" style="display: none;"></a>
+        </div>      
 
     </main>
   </div>
@@ -39,6 +45,8 @@
 <footer>
 </footer>
 
-  <script src="js/main.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src="js/main.js"></script>
+  
 </body>
 </html>
