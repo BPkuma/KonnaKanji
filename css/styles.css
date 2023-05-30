@@ -120,35 +120,27 @@ a {
 
 /*漢字の下*/
   .ending {
-    text-align: center;    
+    text-align: center;
+    margin: 10px;    
   }
   .kanji {
     font-size: 35px;
-    margin-top: 30px;
+    margin-top: 300px;
   }
   .date {
     font-size: 20px;
-  }
-  .saveimage {
-    position: relative;
   }
   .savetext {
     cursor: pointer;
     font-size: 30px;
     border: 1px solid black;
     padding: 0 10px;
-    position: relative;
-  }
-  
-  .result01 > img {
+    /* position: relative; */
+  }  
+  .result01 > img, .result02 > img{
     position: absolute;
-    top: 0%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, 0%);
   }
-  .result02 > img {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-  }
+ 
