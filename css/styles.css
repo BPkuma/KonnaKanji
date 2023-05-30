@@ -144,13 +144,18 @@ a {
     transform: translate(-50%, 0%);
   }
   /*************600ｐｘ以下のレスポンシブ************************************/
+@media screen and (max-width:600px) {
   .answerA,
   .answerB {
     margin: 0 auto;
     border: 1px solid lightgray;
     cursor: pointer;
-    width: auto;
-    font-size: 35px;
+    width: 40%;
+    font-size: 20px;
     height: 30%;
     padding: 0;
-  }    
+    font-weight: bold;
+  }   
+  
+}
+   
