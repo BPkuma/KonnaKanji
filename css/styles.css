@@ -143,4 +143,14 @@ a {
     left: 50%;
     transform: translate(-50%, 0%);
   }
- 
+  /*************600ｐｘ以下のレスポンシブ************************************/
+  .answerA,
+  .answerB {
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    width: auto;
+    font-size: 35px;
+    height: 30%;
+    padding: 0;
+  }    
