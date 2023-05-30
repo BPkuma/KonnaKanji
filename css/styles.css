@@ -3,6 +3,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family : YuMincho, 'Yu Mincho', serif;
 }
 
 /*コンテナで全体を囲んで配置を調整*/
@@ -34,7 +35,7 @@ h1 {
   display: table-cell;
   writing-mode: vertical-lr;
   vertical-align: middle;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: normal;
 }
 /*終了ボタン*/
@@ -45,7 +46,7 @@ h1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #f00;
+    /* background-color: #f00; */
     border: none;
     cursor: pointer;
 }
@@ -72,7 +73,7 @@ main {
 
 /*質問*/
 #question {
-  text-align: center;
+  text-align: left;
   /* background-color: pink; */
   writing-mode: vertical-lr;
   vertical-align: middle;
@@ -83,13 +84,14 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  writing-mode: vertical-rl;
 }
 
 /*回答*/
 #answerBoard {
   display: flex;
   height: 100%;
-  background-color: red;
+  /* background-color: rgb(220, 105, 105); */
   width: 100%;
   text-align: center;
 }
@@ -101,10 +103,10 @@ a {
 .answerA,
 .answerB {
   margin: 0 auto;
-  border: 1px solid blue;
+  border: 1px solid lightgray;
   cursor: pointer;
   width: 50%;
-  font-size: 60px;
+  font-size: 40px;
   height: 30%;
   padding: 0;
 }    

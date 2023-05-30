@@ -374,7 +374,7 @@ function autoSwitchToMain() {
   setTimeout(() => {
     h1.classList.add('hidden');
     main.classList.remove('hidden');
-  }, 500);
+  }, 1000);
 }
 
 // 以下、実行文
