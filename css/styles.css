@@ -77,7 +77,7 @@ main {
   /* background-color: pink; */
   writing-mode: vertical-lr;
   vertical-align: middle;
-  font-size: 50px;
+  font-size: 35px;
   height: 80%;
   width: 100%;
   margin: 0 auto;
@@ -106,7 +106,7 @@ a {
   border: 1px solid lightgray;
   cursor: pointer;
   width: 50%;
-  font-size: 40px;
+  font-size: 35px;
   height: 30%;
   padding: 0;
 }    
@@ -127,11 +127,11 @@ a {
     transform: translate(-50%, 0%);
   }
   .kanji {
-    font-size: 50px;
+    font-size: 35px;
     margin-top: 30px;
   }
   .date {
-    font-size: 30px;
+    font-size: 20px;
   }
   .saveimage {
     position: relative;
