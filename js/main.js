@@ -400,6 +400,10 @@ save.addEventListener('click', function() {
       getimage.click();
       //ダウンロード成功・失敗のアナウンス
       save.textContent = '成功！';
+        //成功したらトップに戻る
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
     }).catch(error => {
       save.textContent = '失敗';
     });      
