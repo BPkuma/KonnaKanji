@@ -19,12 +19,12 @@
 }
 
 /*隠したい要素*/
-.hidden, #answerBoard.hidden, #question.hidden {
+.hidden, #head.hidden, #answerBoard.hidden, #question.hidden {
   display: none;
 }  
 /***********************トップ画面*******************************/
 /*タイトル*/
-h1 {
+#head {
   width: 100%;
   height: 100%;
   margin: 0;
