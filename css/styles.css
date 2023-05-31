@@ -4,9 +4,9 @@
   margin: 0;
   box-sizing: border-box;
   font-family : YuMincho, 'Yu Mincho', serif;
-  -webkit- appearance: none; 
+  -webkit-appearance: none;
+  -webkit-text-size-adjust:100%;
 }
-
 /*コンテナで全体を囲んで配置を調整*/
 .container {
   width: 100%;
