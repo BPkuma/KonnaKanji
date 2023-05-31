@@ -19,7 +19,7 @@
 }
 
 /*隠したい要素*/
-.hidden, #answerBoard.hidden, #question.hidden {
+.hidden, #head.hidden, #answerBoard.hidden, #question.hidden {
   display: none;
 }  
 /***********************トップ画面*******************************/
