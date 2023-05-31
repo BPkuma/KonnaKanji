@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family : YuMincho, 'Yu Mincho', serif;
+  -webkit- appearance: none; 
 }
 
 /*コンテナで全体を囲んで配置を調整*/
@@ -46,7 +47,6 @@ h1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* background-color: #f00; */
     border: none;
     cursor: pointer;
 }
@@ -74,7 +74,6 @@ main {
 /*質問*/
 #question {
   text-align: left;
-  /* background-color: pink; */
   writing-mode: vertical-lr;
   vertical-align: middle;
   font-size: 35px;
@@ -91,7 +90,6 @@ main {
 #answerBoard {
   display: flex;
   height: 100%;
-  /* background-color: rgb(220, 105, 105); */
   width: 100%;
   text-align: center;
 }
@@ -135,7 +133,6 @@ a {
     font-size: 30px;
     border: 1px solid black;
     padding: 0 10px;
-    /* position: relative; */
   }  
   .result01 > img, .result02 > img{
     position: absolute;
@@ -143,7 +140,7 @@ a {
     left: 50%;
     transform: translate(-50%, 0%);
   }
-  /*************600ｐｘ以下のレスポンシブ************************************/
+  /*************600px以下のレスポンシブ************************************/
 @media screen and (max-width:600px) {
   .answerA,
   .answerB {
@@ -155,7 +152,5 @@ a {
     height: 30%;
     padding: 0;
     font-weight: bold;
-  }   
-  
+  }
 }
-   
