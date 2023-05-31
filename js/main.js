@@ -374,6 +374,7 @@ function autoSwitchToMain() {
   setTimeout(() => {
     h1.classList.add('hidden');
     main.classList.remove('hidden');
+    totitle.classList.remove('hidden');
   }, 2000);
 }
 
