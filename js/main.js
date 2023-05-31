@@ -268,7 +268,7 @@ const answerB = document.querySelector('.answerB');
 const back = document.querySelector('.arrow.back');
 const next = document.querySelector('.arrow.next');
 ///////////////////////hiddenを付け替えたい要素を定数に代入
-const h1 = document.querySelector('h1');
+const h1 = document.querySelector('#head');
 const main = document.querySelector('main');
 //////////////////////////タイトルに戻るボタン要素を定数に代入
 const totitle = document.getElementById('totitle');
