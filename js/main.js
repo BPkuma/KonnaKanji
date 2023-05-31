@@ -374,7 +374,7 @@ function autoSwitchToMain() {
   setTimeout(() => {
     h1.classList.add('hidden');
     main.classList.remove('hidden');
-  }, 1000);
+  }, 2000);
 }
 
 // 以下、実行文
@@ -403,7 +403,7 @@ save.addEventListener('click', function() {
         //成功したらトップに戻る
         setTimeout(() => {
           location.reload();
-        }, 1000);
+        }, 2000);
     }).catch(error => {
       save.textContent = '失敗';
     });      
