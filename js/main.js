@@ -362,15 +362,13 @@ function showResult() {
   document.querySelector('.savetext').classList.remove('hidden');
 }
 
-///////////////トップ画面から質問画面への処理をファンクションにする
+//トップ画面から質問画面への処理をファンクションにする
 function autoSwitchToMain() {  
-  ////////////// 初期状態ではメインコンテンツを非表示にする
+  // 最初はタイトルを表示、メインコンテンツと×ボタンを非表示に
+  h1.classList.remove('hidden');
   main.classList.add('hidden');   
-  ///////////// クリック時にタイトルを表示する
-  h1.classList.remove('hidden'); 
-    if(imgsrc !== null) {
-      location.reload();
-    }
+  totitle.classList.add('hidden');
+  //2秒後にタイトル非表示、メインコンテンツと×ボタン表示
   setTimeout(() => {
     h1.classList.add('hidden');
     main.classList.remove('hidden');
