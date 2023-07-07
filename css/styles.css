@@ -6,7 +6,7 @@
   font-family : YuMincho, 'Yu Mincho', serif;
   appearance: none;
   -webkit-appearance: none;
-  -webkit-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
 }
 /*コンテナで全体を囲んで配置を調整*/
 .container {
