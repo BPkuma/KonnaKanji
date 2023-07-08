@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family : YuMincho, 'Yu Mincho', serif;
+  appearance: none;
   -webkit-appearance: none;
   -webkit-text-size-adjust:100%;
 }
